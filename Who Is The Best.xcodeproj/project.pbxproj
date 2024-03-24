@@ -14,6 +14,7 @@
 		D8C9C2E72BAC4E0000DA36CE /* Who_Is_The_BestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C2E62BAC4E0000DA36CE /* Who_Is_The_BestTests.swift */; };
 		D8C9C2F12BAC4E0000DA36CE /* Who_Is_The_BestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C2F02BAC4E0000DA36CE /* Who_Is_The_BestUITests.swift */; };
 		D8C9C2F32BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C2F22BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift */; };
+		D8FC97A02BB038810043913A /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC979F2BB038810043913A /* CounterCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D8C9C2EC2BAC4E0000DA36CE /* Who Is The BestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Who Is The BestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C9C2F02BAC4E0000DA36CE /* Who_Is_The_BestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Who_Is_The_BestUITests.swift; sourceTree = "<group>"; };
 		D8C9C2F22BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Who_Is_The_BestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8FC979F2BB038810043913A /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				D8222D262BB02E080085B611 /* CountersView.swift */,
+				D8FC979F2BB038810043913A /* CounterCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				D8222D272BB02E080085B611 /* CountersView.swift in Sources */,
 				D8C9C2D42BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift in Sources */,
+				D8FC97A02BB038810043913A /* CounterCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
