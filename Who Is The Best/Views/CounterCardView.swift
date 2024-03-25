@@ -11,10 +11,9 @@ struct CounterCardView: View {
     var body: some View {
 		HStack {
 			Image(systemName: "camera")
-				.resizable(resizingMode: .tile)
 				.padding(.horizontal)
 			
-			VStack {
+			VStack(alignment: .leading) {
 				Text("Counter Name")
 					.font(.headline)
 					.accessibilityAddTraits(.isHeader)
@@ -27,6 +26,7 @@ struct CounterCardView: View {
 					.italic()
 			}
 			.padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+			
 		}
     }
 }
