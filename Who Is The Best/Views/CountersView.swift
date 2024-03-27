@@ -6,16 +6,26 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CountersView: View {
+	@Environment(\.modelContext) private var modelContext
+	@Query(sort: \Counter.name) private var counterList: [Counter]
+	
     var body: some View {
 		NavigationStack {
-			List() {
-				NavigationLink(destination: {}) { CounterCardView()
+			List(counterList) { counter in
+				NavigationLink(destination: {}) {
+					CounterCardView()
 				}
-				NavigationLink(destination: {}) { CounterCardView()
-				}
-				NavigationLink(destination: {}) { CounterCardView()
+			}
+			.overlay {
+				if counterList.isEmpty {
+					ContentUnavailableView {
+						Label("No Counters registered.", systemImage: "folder.badge.questionmark")
+					} description: {
+						
+					}
 				}
 			}
 			.navigationTitle("Counters")
@@ -29,5 +39,5 @@ struct CountersView: View {
 }
 
 #Preview {
-    CountersView()
+	CountersView()
 }

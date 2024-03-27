@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct CounterHistory: Identifiable {
+struct CounterHistory: Identifiable, Codable {
 	let id: UUID
 	let date: Date
 	var score: Dictionary<UUID, Int>
 	
-	init(id: UUID = UUID(), date: Date, score: Dictionary<UUID, Int>) {
+	init(id: UUID = UUID(), date: Date, score: Dictionary<UUID, Int> = [:]) {
 		self.id = id
 		self.date = date
 		self.score = score

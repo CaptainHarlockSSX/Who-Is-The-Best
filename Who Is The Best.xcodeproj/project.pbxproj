@@ -16,8 +16,9 @@
 		D8C9C2F32BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C2F22BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift */; };
 		D8FC97A02BB038810043913A /* CounterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC979F2BB038810043913A /* CounterCardView.swift */; };
 		D8FC97A22BB176A30043913A /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC97A12BB176A30043913A /* Counter.swift */; };
-		D8FC97A42BB177FD0043913A /* CounterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC97A32BB177FD0043913A /* CounterType.swift */; };
 		D8FC97A62BB178F10043913A /* CounterHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC97A52BB178F10043913A /* CounterHistory.swift */; };
+		D8FC97A92BB1DBC70043913A /* SampleData+Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC97A82BB1DBC70043913A /* SampleData+Counter.swift */; };
+		D8FC97AB2BB1E0BF0043913A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FC97AA2BB1E0BF0043913A /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +51,9 @@
 		D8C9C2F22BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Who_Is_The_BestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D8FC979F2BB038810043913A /* CounterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCardView.swift; sourceTree = "<group>"; };
 		D8FC97A12BB176A30043913A /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		D8FC97A32BB177FD0043913A /* CounterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterType.swift; sourceTree = "<group>"; };
 		D8FC97A52BB178F10043913A /* CounterHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterHistory.swift; sourceTree = "<group>"; };
+		D8FC97A82BB1DBC70043913A /* SampleData+Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SampleData+Counter.swift"; sourceTree = "<group>"; };
+		D8FC97AA2BB1E0BF0043913A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				D8FC97A12BB176A30043913A /* Counter.swift */,
-				D8FC97A32BB177FD0043913A /* CounterType.swift */,
 				D8FC97A52BB178F10043913A /* CounterHistory.swift */,
+				D8FC97AA2BB1E0BF0043913A /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +123,7 @@
 		D8C9C2D22BAC4DFF00DA36CE /* Who Is The Best */ = {
 			isa = PBXGroup;
 			children = (
+				D8FC97A72BB1DB990043913A /* SampleData */,
 				D8222D252BB025B00085B611 /* Models */,
 				D8222D242BB025820085B611 /* Views */,
 				D8C9C2D32BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift */,
@@ -153,6 +156,14 @@
 				D8C9C2F22BAC4E0000DA36CE /* Who_Is_The_BestUITestsLaunchTests.swift */,
 			);
 			path = "Who Is The BestUITests";
+			sourceTree = "<group>";
+		};
+		D8FC97A72BB1DB990043913A /* SampleData */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC97A82BB1DBC70043913A /* SampleData+Counter.swift */,
+			);
+			path = SampleData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,12 +296,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8FC97A92BB1DBC70043913A /* SampleData+Counter.swift in Sources */,
 				D8FC97A22BB176A30043913A /* Counter.swift in Sources */,
 				D8222D272BB02E080085B611 /* CountersView.swift in Sources */,
 				D8C9C2D42BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift in Sources */,
-				D8FC97A42BB177FD0043913A /* CounterType.swift in Sources */,
 				D8FC97A02BB038810043913A /* CounterCardView.swift in Sources */,
 				D8FC97A62BB178F10043913A /* CounterHistory.swift in Sources */,
+				D8FC97AB2BB1E0BF0043913A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
