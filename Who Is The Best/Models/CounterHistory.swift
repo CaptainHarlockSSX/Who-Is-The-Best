@@ -10,9 +10,9 @@ import Foundation
 struct CounterHistory: Identifiable, Codable {
 	let id: UUID
 	let date: Date
-	var score: Dictionary<UUID, Int>
+	var score: Dictionary<String, Int>
 	
-	init(id: UUID = UUID(), date: Date, score: Dictionary<UUID, Int> = [:]) {
+	init(id: UUID = UUID(), date: Date, score: Dictionary<String, Int> = [:]) {
 		self.id = id
 		self.date = date
 		self.score = score

@@ -9,12 +9,10 @@ import Foundation
 import SwiftData
 
 @Model
-final class User: Identifiable {
-	let id: UUID
-	let name: String
+final class User {
+	@Attribute(.unique) let username: String
 	
-	init(id: UUID = UUID(), name: String) {
-		self.id = id
-		self.name = name
+	init(username: String) {
+		self.username = username
 	}
 }

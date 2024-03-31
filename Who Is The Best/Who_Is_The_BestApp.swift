@@ -10,10 +10,21 @@ import SwiftData
 
 @main
 struct Who_Is_The_BestApp: App {
+	
+	let modelContainer: ModelContainer
+	
+	init() {
+		do {
+			modelContainer = try ModelContainer(for: User.self)
+		} catch {
+			fatalError("Could not initialize ModelContainer")
+		}
+	}
+	
     var body: some Scene {
         WindowGroup {
             CountersView()
         }
-		.modelContainer(for: Counter.self)
+		.modelContainer(modelContainer)
     }
 }

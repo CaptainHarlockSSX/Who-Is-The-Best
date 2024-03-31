@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D8222D272BB02E080085B611 /* CountersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8222D262BB02E080085B611 /* CountersView.swift */; };
+		D82A6A2A2BB479250049F326 /* CounterEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A6A292BB479250049F326 /* CounterEditorView.swift */; };
+		D82A6A2C2BB9B8D50049F326 /* AddParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82A6A2B2BB9B8D50049F326 /* AddParticipantView.swift */; };
 		D8C9C2D42BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9C2D32BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift */; };
 		D8C9C2DA2BAC4E0000DA36CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C9C2D92BAC4E0000DA36CE /* Assets.xcassets */; };
 		D8C9C2DD2BAC4E0000DA36CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C9C2DC2BAC4E0000DA36CE /* Preview Assets.xcassets */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		D8222D262BB02E080085B611 /* CountersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersView.swift; sourceTree = "<group>"; };
+		D82A6A292BB479250049F326 /* CounterEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterEditorView.swift; sourceTree = "<group>"; };
+		D82A6A2B2BB9B8D50049F326 /* AddParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantView.swift; sourceTree = "<group>"; };
 		D8C9C2D02BAC4DFF00DA36CE /* Who Is The Best.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Who Is The Best.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C9C2D32BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Who_Is_The_BestApp.swift; sourceTree = "<group>"; };
 		D8C9C2D92BAC4E0000DA36CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 			children = (
 				D8222D262BB02E080085B611 /* CountersView.swift */,
 				D8FC979F2BB038810043913A /* CounterCardView.swift */,
+				D82A6A292BB479250049F326 /* CounterEditorView.swift */,
+				D82A6A2B2BB9B8D50049F326 /* AddParticipantView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +306,8 @@
 				D8FC97A22BB176A30043913A /* Counter.swift in Sources */,
 				D8222D272BB02E080085B611 /* CountersView.swift in Sources */,
 				D8C9C2D42BAC4DFF00DA36CE /* Who_Is_The_BestApp.swift in Sources */,
+				D82A6A2C2BB9B8D50049F326 /* AddParticipantView.swift in Sources */,
+				D82A6A2A2BB479250049F326 /* CounterEditorView.swift in Sources */,
 				D8FC97A02BB038810043913A /* CounterCardView.swift in Sources */,
 				D8FC97A62BB178F10043913A /* CounterHistory.swift in Sources */,
 				D8FC97AB2BB1E0BF0043913A /* User.swift in Sources */,
