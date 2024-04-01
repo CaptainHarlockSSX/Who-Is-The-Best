@@ -81,11 +81,6 @@ struct CounterEditorView: View {
 					.disabled(saveDisableCondition)
 				}
 				
-				ToolbarItem(placement: .cancellationAction) {
-					Button("Cancel", role: .cancel) {
-						dismiss()
-					}
-				}
 			}
 			.onAppear {
 				if let counter {

@@ -30,10 +30,13 @@ struct CountersView: View {
 			}
 			.navigationTitle("Counters")
 			.toolbar {
-				Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-					Image(systemName: "plus")
-				})
+				ToolbarItem(placement: .navigationBarTrailing) {
+					NavigationLink(destination: CounterEditorView(counter: nil)) {
+						Image(systemName: "plus")
+					}
+				}
 			}
+
 		}
     }
 }

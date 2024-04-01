@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 final class User {
-	@Attribute(.unique) let username: String
+	@Attribute(.unique) var username: String
 	
 	init(username: String) {
 		self.username = username
