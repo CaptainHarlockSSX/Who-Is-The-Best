@@ -14,10 +14,13 @@ struct CountersView: View {
 	
     var body: some View {
 		NavigationStack {
-			List(counterList) { counter in
-				NavigationLink(destination: {}) {
-					CounterCardView(counter: counter)
+			List {
+				ForEach(counterList) { counter in
+					NavigationLink(destination: {}) {
+						CounterCardView(counter: counter)
+					}
 				}
+				.onDelete(perform: deleteCounter)
 			}
 			.overlay {
 				if counterList.isEmpty {
@@ -39,8 +42,40 @@ struct CountersView: View {
 
 		}
     }
+	
+	func deleteCounter(_ indexSet: IndexSet) {
+		for index in indexSet {
+			let counter = counterList[index]
+			modelContext.delete(counter)
+		}
+	}
 }
 
-#Preview {
-	CountersView()
+#Preview("Counter List") {
+	do {
+		let config = ModelConfiguration(isStoredInMemoryOnly: true)
+		let container = try ModelContainer(for: Counter.self, configurations: config)
+		
+		container.mainContext.insert(Counter.mindBug)
+		container.mainContext.insert(Counter.notAlone)
+		container.mainContext.insert(Counter.bossMonster)
+		container.mainContext.insert(Counter.pushUps)
+		
+		return CountersView()
+			.modelContainer(container)
+	} catch {
+		fatalError("Failed to create sample model container.")
+	}
+}
+
+#Preview("No Counter") {
+	do {
+		let config = ModelConfiguration(isStoredInMemoryOnly: true)
+		let container = try ModelContainer(for: Counter.self, configurations: config)
+		
+		return CountersView()
+			.modelContainer(container)
+	} catch {
+		fatalError("Failed to create sample model container.")
+	}
 }
