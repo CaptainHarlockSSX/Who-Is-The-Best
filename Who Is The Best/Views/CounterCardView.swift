@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CounterCardView: View {
+	@Bindable var counter: Counter
+	
     var body: some View {
 		HStack {
 			Image(systemName: "camera")
 				.padding(.horizontal)
 			
 			VStack(alignment: .leading) {
-				Text("Counter Name")
+				Text(counter.name)
 					.font(.headline)
 					.accessibilityAddTraits(.isHeader)
 				Text("Leader : Antoine")
@@ -32,5 +35,12 @@ struct CounterCardView: View {
 }
 
 #Preview {
-    CounterCardView()
+	do {
+		let config = ModelConfiguration(isStoredInMemoryOnly: true)
+		let container = try ModelContainer(for: Counter.self, configurations: config)
+		return CounterCardView(counter: Counter.bossMonster)
+			.modelContainer(container)
+	} catch {
+		fatalError("Failed to create sample model container.")
+	}
 }

@@ -16,7 +16,7 @@ struct CountersView: View {
 		NavigationStack {
 			List(counterList) { counter in
 				NavigationLink(destination: {}) {
-					CounterCardView()
+					CounterCardView(counter: counter)
 				}
 			}
 			.overlay {
