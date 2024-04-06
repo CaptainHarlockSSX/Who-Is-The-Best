@@ -52,30 +52,11 @@ struct CountersView: View {
 }
 
 #Preview("Counter List") {
-	do {
-		let config = ModelConfiguration(isStoredInMemoryOnly: true)
-		let container = try ModelContainer(for: Counter.self, configurations: config)
-		
-		container.mainContext.insert(Counter.mindBug)
-		container.mainContext.insert(Counter.notAlone)
-		container.mainContext.insert(Counter.bossMonster)
-		container.mainContext.insert(Counter.pushUps)
-		
-		return CountersView()
-			.modelContainer(container)
-	} catch {
-		fatalError("Failed to create sample model container.")
+	ModelContainerPreview(ModelContainer.sample) {
+		CountersView()
 	}
 }
 
 #Preview("No Counter") {
-	do {
-		let config = ModelConfiguration(isStoredInMemoryOnly: true)
-		let container = try ModelContainer(for: Counter.self, configurations: config)
-		
-		return CountersView()
-			.modelContainer(container)
-	} catch {
-		fatalError("Failed to create sample model container.")
-	}
+	CountersView()
 }

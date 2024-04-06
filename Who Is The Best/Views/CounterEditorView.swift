@@ -109,9 +109,13 @@ struct CounterEditorView: View {
 }
 
 #Preview("Add Counter") {
-	CounterEditorView(counter: nil)
+	ModelContainerPreview(ModelContainer.sample) {
+		CounterEditorView(counter: nil)
+	}
 }
 
-//#Preview("Edit Counter") {
-//	CounterEditorView(counter: Counter.mindBug)
-//}
+#Preview("Edit Counter") {
+	ModelContainerPreview(ModelContainer.sample) {
+		CounterEditorView(counter: Counter.mindBug)
+	}
+}

@@ -15,7 +15,8 @@ struct Who_Is_The_BestApp: App {
 	
 	init() {
 		do {
-			modelContainer = try ModelContainer(for: Counter.self)
+			let schema = Schema([Counter.self, User.self])
+			modelContainer = try ModelContainer(for: schema)
 		} catch {
 			fatalError("Could not initialize ModelContainer")
 		}

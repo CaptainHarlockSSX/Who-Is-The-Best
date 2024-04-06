@@ -35,12 +35,7 @@ struct CounterCardView: View {
 }
 
 #Preview {
-	do {
-		let config = ModelConfiguration(isStoredInMemoryOnly: true)
-		let container = try ModelContainer(for: Counter.self, configurations: config)
-		return CounterCardView(counter: Counter.bossMonster)
-			.modelContainer(container)
-	} catch {
-		fatalError("Failed to create sample model container.")
+	ModelContainerPreview(ModelContainer.sample) {
+		CounterCardView(counter: Counter.mindBug)
 	}
 }

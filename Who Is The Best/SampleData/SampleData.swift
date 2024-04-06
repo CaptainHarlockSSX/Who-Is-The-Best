@@ -17,6 +17,8 @@ extension User {
 }
 
 extension Counter {
+	static let sampleCounters: [Counter] = [pushUps, mindBug, notAlone, bossMonster]
+	
 	static let pushUps = Counter(name: "Push ups",
 								 type: .solo)
 	

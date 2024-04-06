@@ -58,6 +58,12 @@ struct AddParticipantView: View {
     }
 }
 
-#Preview {
-	AddParticipantView(isPresentingParticipantSheet: .constant(true), counterParticipants: .constant(User.sampleUsers))
+#Preview("Existing Participants") {
+	ModelContainerPreview(ModelContainer.sample) {
+		AddParticipantView(isPresentingParticipantSheet: .constant(true), counterParticipants: .constant(User.sampleUsers))
+	}
+}
+
+#Preview("No Participants") {
+	AddParticipantView(isPresentingParticipantSheet: .constant(true), counterParticipants: .constant([]))
 }
