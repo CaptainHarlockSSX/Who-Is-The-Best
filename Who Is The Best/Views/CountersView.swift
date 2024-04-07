@@ -27,16 +27,14 @@ struct CountersView: View {
 					ContentUnavailableView {
 						Label("No Counters registered.", systemImage: "folder.badge.questionmark")
 					} description: {
-						
+						AddCounterButton()
 					}
 				}
 			}
 			.navigationTitle("Counters")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					NavigationLink(destination: CounterEditorView(counter: nil)) {
-						Image(systemName: "plus")
-					}
+					AddCounterButton()
 				}
 			}
 
@@ -47,6 +45,15 @@ struct CountersView: View {
 		for index in indexSet {
 			let counter = counterList[index]
 			modelContext.delete(counter)
+		}
+	}
+}
+
+private struct AddCounterButton: View {
+	var body: some View {
+		NavigationLink(destination: CounterEditorView(counter: nil)) {
+			Label("Add a Counter", systemImage: "plus")
+				.help("Add a Counter")
 		}
 	}
 }
