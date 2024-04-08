@@ -13,7 +13,7 @@ final class Counter: Identifiable {
 	let id: UUID
 	var name: String
 	var score: Dictionary<String, Int>
-	@Relationship(deleteRule: .noAction) var counterParticipants: [User]
+	@Relationship(deleteRule: .noAction, inverse: \User.counters) var counterParticipants = [User]()
 	var type: CounterType
 	var history: [CounterHistory]
 	

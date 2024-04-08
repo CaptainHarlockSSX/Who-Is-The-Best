@@ -64,7 +64,7 @@ struct CounterEditorView: View {
 				}
 			}
 			.sheet(isPresented: $isPresentingParticipantSheet, content: {
-				AddParticipantView(isPresentingParticipantSheet: $isPresentingParticipantSheet, counterParticipants: $counterParticipants)
+				AddParticipantView(isPresentingParticipantListSheet: $isPresentingParticipantSheet, counterParticipants: $counterParticipants)
 			})
 			.toolbar {
 				ToolbarItem(placement: .principal) {

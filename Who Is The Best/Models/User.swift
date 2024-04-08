@@ -11,6 +11,7 @@ import SwiftData
 @Model
 final class User {
 	@Attribute(.unique) var username: String
+	var counters = [Counter]()
 	
 	init(username: String) {
 		self.username = username

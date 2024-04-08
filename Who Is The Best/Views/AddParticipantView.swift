@@ -12,7 +12,7 @@ struct AddParticipantView: View {
 	@State private var searchString = ""
 	@Query(sort: \User.username) private var globalParticipants: [User]
 	@Environment(\.modelContext) private var modelContext
-	@Binding var isPresentingParticipantSheet: Bool
+	@Binding var isPresentingParticipantListSheet: Bool
 	@Binding var counterParticipants: [User]
 	
 	var filteredParticipants: [User] {
@@ -30,7 +30,7 @@ struct AddParticipantView: View {
 					Text(user.username)
 						.onTapGesture(perform: {
 							counterParticipants.append(user)
-							isPresentingParticipantSheet = false
+							isPresentingParticipantListSheet = false
 						})
 				}
 				
@@ -49,7 +49,7 @@ struct AddParticipantView: View {
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Dismiss") {
-						isPresentingParticipantSheet = false
+						isPresentingParticipantListSheet = false
 					}
 				}
 			}
@@ -60,10 +60,10 @@ struct AddParticipantView: View {
 
 #Preview("Existing Participants") {
 	ModelContainerPreview(ModelContainer.sample) {
-		AddParticipantView(isPresentingParticipantSheet: .constant(true), counterParticipants: .constant(User.sampleUsers))
+		AddParticipantView(isPresentingParticipantListSheet: .constant(true), counterParticipants: .constant(User.sampleUsers))
 	}
 }
 
 #Preview("No Participants") {
-	AddParticipantView(isPresentingParticipantSheet: .constant(true), counterParticipants: .constant([]))
+	AddParticipantView(isPresentingParticipantListSheet: .constant(true), counterParticipants: .constant([]))
 }
