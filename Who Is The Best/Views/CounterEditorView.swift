@@ -26,7 +26,7 @@ struct CounterEditorView: View {
 
 	var saveDisableCondition: Bool {
 		(counterName.isEmpty) ||
-		(counterType == Counter.CounterType.solo && counterParticipants.count != 0) ||
+		(counterType == Counter.CounterType.solo && counterParticipants.count != 1) ||
 		(counterType == Counter.CounterType.duo && counterParticipants.count != 2) ||
 		(counterType == Counter.CounterType.list && counterParticipants.count < 2) ||
 		(counterType == Counter.CounterType.circle && counterParticipants.count < 2)
