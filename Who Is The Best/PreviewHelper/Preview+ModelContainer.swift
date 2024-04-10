@@ -22,6 +22,10 @@ extension ModelContainer {
 			for counter in Counter.sampleCounters {
 				container.mainContext.insert(counter)
 			}
+			
+			Counter.mindBug.counterParticipants = [User.camille, User.nathan]
+			Counter.notAlone.counterParticipants = [User.camille, User.nathan, User.fabien]
+			Counter.bossMonster.counterParticipants = [User.camille, User.nathan, User.alexis, User.fabien]
 		}
 		return container
 	}
