@@ -11,7 +11,8 @@ import SwiftData
 struct CountersView: View {
 	@Environment(\.modelContext) private var modelContext
 	@Query(sort: \Counter.name) private var counterList: [Counter]
-	
+	@Binding var isPresentingParticipantEditorSheet: Bool
+
     var body: some View {
 		NavigationStack {
 			List {
@@ -27,14 +28,14 @@ struct CountersView: View {
 					ContentUnavailableView {
 						Label("No Counters registered.", systemImage: "folder.badge.questionmark")
 					} description: {
-						AddCounterButton()
+						AddCounterButton(isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet)
 					}
 				}
 			}
 			.navigationTitle("Counters")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
-					AddCounterButton()
+					AddCounterButton(isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet)
 				}
 			}
 
@@ -50,8 +51,10 @@ struct CountersView: View {
 }
 
 private struct AddCounterButton: View {
+	@Binding var isPresentingParticipantEditorSheet: Bool
+
 	var body: some View {
-		NavigationLink(destination: CounterEditorView(counter: nil)) {
+		NavigationLink(destination: CounterEditorView(counter: nil, isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet)) {
 			Label("Add a Counter", systemImage: "plus")
 				.help("Add a Counter")
 		}
@@ -60,10 +63,10 @@ private struct AddCounterButton: View {
 
 #Preview("Counter List") {
 	ModelContainerPreview(ModelContainer.sample) {
-		CountersView()
+		CountersView(isPresentingParticipantEditorSheet: .constant(false))
 	}
 }
 
 #Preview("No Counter") {
-	CountersView()
+	CountersView(isPresentingParticipantEditorSheet: .constant(false))
 }

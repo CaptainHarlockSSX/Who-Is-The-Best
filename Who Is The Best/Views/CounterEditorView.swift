@@ -19,7 +19,8 @@ struct CounterEditorView: View {
 	@State private var counterType = Counter.CounterType.solo
 	@State private var counterParticipants: [User] = []
 	@State private var newParticipantUsername = ""
-	@State private var isPresentingParticipantSheet = false
+	@State private var isPresentingParticipantListSheet = false
+	@Binding var isPresentingParticipantEditorSheet: Bool
 	
 	@Environment(\.modelContext) private var modelContext
 	@Environment(\.dismiss) private var dismiss
@@ -54,7 +55,7 @@ struct CounterEditorView: View {
 					})
 					
 					Button(action: {
-						isPresentingParticipantSheet = true
+						isPresentingParticipantListSheet.toggle()
 					}, label: {
 						withAnimation {
 							Label("Add Participant", systemImage: "plus.circle.fill")
@@ -63,8 +64,10 @@ struct CounterEditorView: View {
 						
 				}
 			}
-			.sheet(isPresented: $isPresentingParticipantSheet, content: {
-				AddParticipantView(isPresentingParticipantListSheet: $isPresentingParticipantSheet, counterParticipants: $counterParticipants)
+			.sheet(isPresented: $isPresentingParticipantListSheet, content: {
+				AddParticipantView(isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet, isPresentingParticipantListSheet: $isPresentingParticipantListSheet, counterParticipants: $counterParticipants)
+					.presentationDetents([.fraction(0.9)])
+					.presentationCornerRadius(30)
 			})
 			.toolbar {
 				ToolbarItem(placement: .principal) {
@@ -110,12 +113,12 @@ struct CounterEditorView: View {
 
 #Preview("Add Counter") {
 	ModelContainerPreview(ModelContainer.sample) {
-		CounterEditorView(counter: nil)
+		CounterEditorView(counter: nil, isPresentingParticipantEditorSheet: .constant(false))
 	}
 }
 
 #Preview("Edit Counter") {
 	ModelContainerPreview(ModelContainer.sample) {
-		CounterEditorView(counter: Counter.mindBug)
+		CounterEditorView(counter: Counter.mindBug, isPresentingParticipantEditorSheet: .constant(false))
 	}
 }

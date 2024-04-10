@@ -9,9 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct MainView: View {
+	@State private var isPresentingParticipantEditorSheet: Bool = false
+	
     var body: some View {
 		TabView {
-			CountersView()
+			CountersView(isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet)
 				.tabItem {
 					Label(
 						title: { Text("Counters") },

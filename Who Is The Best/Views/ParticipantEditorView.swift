@@ -16,7 +16,7 @@ struct ParticipantEditorView: View {
 	}
 	
 	@State private var username: String = ""
-	@Binding var isPresentingParticipantListSheet: Bool
+	@Binding var isPresentingParticipantEditorSheet: Bool
 	@Environment(\.dismiss) private var dismiss
 	@Environment(\.modelContext) private var modelContext
 	
@@ -32,7 +32,7 @@ struct ParticipantEditorView: View {
 				
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Dismiss") {
-						isPresentingParticipantListSheet = false
+						isPresentingParticipantEditorSheet = false
 					}
 				}
 				
@@ -69,10 +69,10 @@ struct ParticipantEditorView: View {
 
 #Preview("Edit Participant") {
 	ModelContainerPreview(ModelContainer.sample) {
-		ParticipantEditorView(participant: User.alexis, isPresentingParticipantListSheet: .constant(true))
+		ParticipantEditorView(participant: User.alexis, isPresentingParticipantEditorSheet: .constant(true))
 	}
 }
 
 #Preview("No Participants") {
-	ParticipantEditorView(participant: nil, isPresentingParticipantListSheet: .constant(true))
+	ParticipantEditorView(participant: nil, isPresentingParticipantEditorSheet: .constant(true))
 }

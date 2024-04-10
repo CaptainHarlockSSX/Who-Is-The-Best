@@ -25,7 +25,7 @@ struct UserListView: View {
 //				.onDelete(perform: deleteCounter)
 			}
 			.sheet(isPresented: $isPresentingParticipantEditorSheet, content: {
-				ParticipantEditorView(participant: nil, isPresentingParticipantListSheet: $isPresentingParticipantEditorSheet)
+				ParticipantEditorView(participant: nil, isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet)
 			})
 			.overlay {
 				if userList.isEmpty {
