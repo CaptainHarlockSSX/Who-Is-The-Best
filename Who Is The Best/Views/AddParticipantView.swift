@@ -12,8 +12,8 @@ struct AddParticipantView: View {
 	@State private var searchString = ""
 	@Query(sort: \User.username) private var globalParticipants: [User]
 	@Environment(\.modelContext) private var modelContext
+	@Environment(\.dismiss) private var dismiss
 	@Binding var isPresentingParticipantEditorSheet: Bool
-	@Binding var isPresentingParticipantListSheet: Bool
 	@Binding var counterParticipants: [User]
 	
 	var filteredParticipants: [User] {
@@ -43,37 +43,33 @@ struct AddParticipantView: View {
 					Text(user.username)
 						.onTapGesture(perform: {
 							counterParticipants.append(user)
-							isPresentingParticipantListSheet.toggle()
+							dismiss()
 						})
 				}
 				
 			}
-			.sheet(isPresented: $isPresentingParticipantEditorSheet, content: {
-				ParticipantEditorView(participant: nil, isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet)
-					.presentationDetents([.fraction(0.9)])
-					.presentationCornerRadius(30)
-					.presentationBackground(.thickMaterial)
-			})
 			.searchable(text: $searchString, prompt: "Username...")
 			.navigationTitle("Search Participant")
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Dismiss") {
-						isPresentingParticipantListSheet.toggle()
+						dismiss()
 					}
 				}
 			}
+			.navigationDestination(isPresented: $isPresentingParticipantEditorSheet, destination: {
+				ParticipantEditorView(searchString: searchString)
+			})
 		}
-		
     }
 }
 
 #Preview("Existing Participants") {
 	ModelContainerPreview(ModelContainer.sample) {
-		AddParticipantView(isPresentingParticipantEditorSheet: .constant(false), isPresentingParticipantListSheet: .constant(true), counterParticipants: .constant(User.sampleUsers))
+		AddParticipantView(isPresentingParticipantEditorSheet: .constant(false), counterParticipants: .constant(User.sampleUsers))
 	}
 }
 
 #Preview("No Participants") {
-	AddParticipantView(isPresentingParticipantEditorSheet: .constant(false), isPresentingParticipantListSheet: .constant(true), counterParticipants: .constant([]))
+	AddParticipantView(isPresentingParticipantEditorSheet: .constant(false), counterParticipants: .constant([]))
 }

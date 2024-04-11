@@ -65,9 +65,7 @@ struct CounterEditorView: View {
 				}
 			}
 			.sheet(isPresented: $isPresentingParticipantListSheet, content: {
-				AddParticipantView(isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet, isPresentingParticipantListSheet: $isPresentingParticipantListSheet, counterParticipants: $counterParticipants)
-					.presentationDetents([.fraction(0.9)])
-					.presentationCornerRadius(30)
+				AddParticipantView(isPresentingParticipantEditorSheet: $isPresentingParticipantEditorSheet, counterParticipants: $counterParticipants)
 			})
 			.toolbar {
 				ToolbarItem(placement: .principal) {

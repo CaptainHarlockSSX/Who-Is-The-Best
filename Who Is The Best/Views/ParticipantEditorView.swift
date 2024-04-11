@@ -9,14 +9,19 @@ import SwiftUI
 import SwiftData
 
 struct ParticipantEditorView: View {
+	let searchString: String?
 	let participant: User?
+	
+	init(searchString: String? = nil, participant: User? = nil) {
+		self.searchString = searchString
+		self.participant = participant
+	}
 	
 	private var editorTitle: String {
 		participant == nil ? "Create Participant" : "Edit Participant"
 	}
 	
 	@State private var username: String = ""
-	@Binding var isPresentingParticipantEditorSheet: Bool
 	@Environment(\.dismiss) private var dismiss
 	@Environment(\.modelContext) private var modelContext
 	
@@ -32,7 +37,7 @@ struct ParticipantEditorView: View {
 				
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Dismiss") {
-						isPresentingParticipantEditorSheet = false
+						dismiss()
 					}
 				}
 				
@@ -49,6 +54,9 @@ struct ParticipantEditorView: View {
 			.onAppear {
 				if let participant {
 					username = participant.username
+				}
+				if let searchString {
+					username = searchString
 				}
 			}
 		}
@@ -69,10 +77,10 @@ struct ParticipantEditorView: View {
 
 #Preview("Edit Participant") {
 	ModelContainerPreview(ModelContainer.sample) {
-		ParticipantEditorView(participant: User.alexis, isPresentingParticipantEditorSheet: .constant(true))
+		ParticipantEditorView(participant: User.alexis)
 	}
 }
 
 #Preview("No Participants") {
-	ParticipantEditorView(participant: nil, isPresentingParticipantEditorSheet: .constant(true))
+	ParticipantEditorView(participant: nil)
 }
