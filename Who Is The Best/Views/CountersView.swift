@@ -17,7 +17,9 @@ struct CountersView: View {
 		NavigationStack {
 			List {
 				ForEach(counterList) { counter in
-					NavigationLink(destination: {}) {
+					NavigationLink(destination: {
+						counter.type.destination
+					}) {
 						CounterCardView(counter: counter)
 					}
 				}

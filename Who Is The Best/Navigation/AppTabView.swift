@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  AppTabView.swift
 //  Who Is The Best
 //
 //  Created by Nathan Rassié on 08/04/2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct MainView: View {
+struct AppTabView: View {
 	@State private var isPresentingParticipantEditorSheet: Bool = false
 	
     var body: some View {
@@ -31,11 +31,11 @@ struct MainView: View {
     }
 }
 #Preview("Empty App") {
-	MainView()
+	AppTabView()
 }
 
 #Preview("Sample Data") {
 	ModelContainerPreview(ModelContainer.sample) {
-		MainView()
+		AppTabView()
 	}
 }

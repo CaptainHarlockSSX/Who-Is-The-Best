@@ -24,7 +24,7 @@ struct Who_Is_The_BestApp: App {
 	
     var body: some Scene {
         WindowGroup {
-            MainView()
+            AppTabView()
         }
 		.modelContainer(modelContainer)
     }

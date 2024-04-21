@@ -16,7 +16,7 @@ struct CounterEditorView: View {
 	}
 	
 	@State private var counterName = ""
-	@State private var counterType = Counter.CounterType.solo
+	@State private var counterType = AppCounterType.solo
 	@State private var counterParticipants: [User] = []
 	@State private var newParticipantUsername = ""
 	@State private var isPresentingParticipantListSheet = false
@@ -27,10 +27,10 @@ struct CounterEditorView: View {
 
 	var saveDisableCondition: Bool {
 		(counterName.isEmpty) ||
-		(counterType == Counter.CounterType.solo && counterParticipants.count != 1) ||
-		(counterType == Counter.CounterType.duo && counterParticipants.count != 2) ||
-		(counterType == Counter.CounterType.list && counterParticipants.count < 2) ||
-		(counterType == Counter.CounterType.circle && counterParticipants.count < 2)
+		(counterType == AppCounterType.solo && counterParticipants.count != 1) ||
+		(counterType == AppCounterType.duo && counterParticipants.count != 2) ||
+		(counterType == AppCounterType.list && counterParticipants.count < 2) ||
+		(counterType == AppCounterType.circle && counterParticipants.count < 2)
 	}
 	
     var body: some View {
@@ -40,7 +40,7 @@ struct CounterEditorView: View {
 					TextField("My Counter Name", text: $counterName)
 					
 					Picker("Type", selection: $counterType) {
-						ForEach(Counter.CounterType.allCases) { type in
+						ForEach(AppCounterType.allCases) { type in
 							Text(type.name).tag(type)
 						}
 					}

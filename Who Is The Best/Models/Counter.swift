@@ -14,32 +14,15 @@ final class Counter: Identifiable {
 	var name: String
 	var score: Dictionary<String, Int>
 	@Relationship(deleteRule: .noAction, inverse: \User.counters) var counterParticipants = [User]()
-	var type: CounterType
+	var type: AppCounterType
 	var history: [CounterHistory]
 	
-	init(id: UUID = UUID(), name: String, type: CounterType, score: Dictionary<String, Int> = [:], history: [CounterHistory] = [], counterParticipants: [User] = []) {
+	init(id: UUID = UUID(), name: String, type: AppCounterType, score: Dictionary<String, Int> = [:], history: [CounterHistory] = [], counterParticipants: [User] = []) {
 		self.id = id
 		self.name = name
 		self.score = score
 		self.type = type
 		self.history = history
 		self.counterParticipants = counterParticipants
-	}
-}
-
-extension Counter { 
-	enum CounterType: String, Identifiable, CaseIterable, Codable {
-		case solo
-		case duo
-		case circle
-		case list
-		
-		var name: String {
-			rawValue.capitalized
-		}
-		
-		var id: String {
-			name
-		}
 	}
 }
