@@ -23,9 +23,8 @@ extension Counter {
 								 type: .solo)
 	
 	static let mindBug = Counter(name: "Mind Bug",
-								 type: .duo, 
 								 score: [User.sampleUsers[2].username: 4,
-													 User.sampleUsers[1].username: 2],
+										 User.sampleUsers[1].username: 2], type: .duo,
 								 history: [CounterHistory(date: Date.init(timeIntervalSinceNow: -300),
 														  score: [User.sampleUsers[2].username: 3,
 																  User.sampleUsers[1].username: 2]),
@@ -38,10 +37,9 @@ extension Counter {
 								 ])
 	
 	static let notAlone = Counter(name: "Not Alone",
-								  type: .circle, 
 								  score: [User.sampleUsers[2].username: 2,
-														 User.sampleUsers[1].username: 5,
-														 User.sampleUsers[0].username: 3],
+										  User.sampleUsers[1].username: 5,
+										  User.sampleUsers[0].username: 3], type: .circle,
 								  history: [CounterHistory(date: Date.init(timeIntervalSinceNow: -400),
 														   score: [User.sampleUsers[2].username: 2,
 																   User.sampleUsers[1].username: 4,
@@ -57,10 +55,9 @@ extension Counter {
 								  ])
 	
 	static let bossMonster = Counter(name: "Boss Monster",
-									 type: .list, 
 									 score: [User.sampleUsers[3].username: 3,
-														  User.sampleUsers[2].username: 2,
-														  User.sampleUsers[1].username: 5,
-														  User.sampleUsers[0].username: 3],
+											 User.sampleUsers[2].username: 2,
+											 User.sampleUsers[1].username: 5,
+											 User.sampleUsers[0].username: 3], type: .list,
 									 history: [])
 }
