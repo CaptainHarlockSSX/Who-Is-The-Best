@@ -20,7 +20,7 @@ final class Counter: Identifiable {
 	var history: [CounterHistory]
 	var image: Image?
 	
-	init(id: UUID = UUID(), name: String, caption: String? = nil, score: Dictionary<String, Int> = [:], counterParticipants: [User] = [User](), type: CounterType, history: [CounterHistory] = [], image: Image? = nil) {
+	init(id: UUID = UUID(), name: String, caption: String? = nil, score: Dictionary<String, Int> = [:], counterParticipants: [User] = [User](), type: AppCounterType, history: [CounterHistory] = [], image: Image? = nil) {
 		self.id = id
 		self.name = name
 		self.caption = caption
