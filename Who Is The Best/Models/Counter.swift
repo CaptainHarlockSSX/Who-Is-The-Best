@@ -18,9 +18,9 @@ final class Counter: Identifiable {
 	@Relationship(deleteRule: .noAction, inverse: \User.counters) var counterParticipants = [User]()
 	var type: AppCounterType
 	var history: [CounterHistory]
-	var image: Image?
+	var image: Data?
 	
-	init(id: UUID = UUID(), name: String, caption: String? = nil, score: Dictionary<String, Int> = [:], counterParticipants: [User] = [User](), type: AppCounterType, history: [CounterHistory] = [], image: Image? = nil) {
+	init(id: UUID = UUID(), name: String, caption: String? = nil, score: Dictionary<String, Int> = [:], counterParticipants: [User] = [User](), type: CounterType, history: [CounterHistory] = [], image: Data? = nil) {
 		self.id = id
 		self.name = name
 		self.caption = caption
