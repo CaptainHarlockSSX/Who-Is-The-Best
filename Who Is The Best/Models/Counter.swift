@@ -15,17 +15,16 @@ final class Counter: Identifiable {
 	var name: String
 	var caption: String?
 	var score: Dictionary<String, Int>
-	@Relationship(deleteRule: .noAction, inverse: \User.counters) var counterParticipants = [User]()
+	@Relationship(deleteRule: .nullify, inverse: \User.counters) var counterParticipants = [User]()
 	var type: AppCounterType
 	var history: [CounterHistory]
 	@Attribute(.externalStorage) var image: Data?
 	
-	init(id: UUID = UUID(), name: String, caption: String? = nil, score: Dictionary<String, Int> = [:], counterParticipants: [User] = [User](), type: CounterType, history: [CounterHistory] = [], image: Data? = nil) {
+	init(id: UUID = UUID(), name: String, caption: String? = nil, score: Dictionary<String, Int> = [:], type: AppCounterType, history: [CounterHistory] = [], image: Data? = nil) {
 		self.id = id
 		self.name = name
 		self.caption = caption
 		self.score = score
-		self.counterParticipants = counterParticipants
 		self.type = type
 		self.history = history
 		self.image = image
@@ -44,5 +43,9 @@ final class Counter: Identifiable {
 	func removeParticpant(withIndex index: Int) -> Void {
 		let removedUser = self.counterParticipants.remove(at: index)
 		self.score.removeValue(forKey: removedUser.username)
+	}
+	
+	func incrementScore(ofParticipant participant: User, value: Int) -> Void {
+		score[participant.username]! += value
 	}
 }

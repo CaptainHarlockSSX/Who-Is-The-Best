@@ -38,7 +38,7 @@ extension AppCounterType {
 	}
 	
 	@ViewBuilder
-	var destination: some View {
+	func destination(counter: Counter) -> some View {
 		switch self {
 		case .solo:
 			SoloCounterView()

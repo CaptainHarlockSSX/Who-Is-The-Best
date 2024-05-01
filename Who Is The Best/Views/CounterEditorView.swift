@@ -102,8 +102,11 @@ struct CounterEditorView: View {
 			counter.counterParticipants = counterParticipants
 		} else {
 			// Add a new counter
-			let newCounter = Counter(name: counterName, counterParticipants: counterParticipants, type: counterType)
+			let newCounter = Counter(name: counterName, type: counterType)
 			modelContext.insert(newCounter)
+			counterParticipants.forEach { participant in
+				newCounter.addParticipant(participant: participant)
+			}
 		}
 	}
 	
